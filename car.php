@@ -15,9 +15,18 @@ class Car {
     $this->seatedPassenger1 = $passenger1;
   }
 
+  public function sit2($passenger1, $passenger2) {
+    $this->seatedPassenger1 = $passenger1;
+    $this->seatedPassenger2 = $passenger2;
+  }
+
   public function getPassenger1() {
     return $this->seatedPassenger1;
   }
+
+  public function getPassenger2() {
+    return $this->seatedPassenger2;
+    }
 
   }
 
@@ -25,3 +34,4 @@ class Car {
 
 
  ?>
+g
