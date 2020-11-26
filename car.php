@@ -10,8 +10,8 @@ class Car {
     $this->seats = $seats;
   }
 
-  public function sit($passengers) {
-    $this->seatedPassengers[] = $passengers;
+  public function sit($passenger) {
+    $this->seatedPassengers[] = $passenger;
   }
 
   public function getPassengers() {

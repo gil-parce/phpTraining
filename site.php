@@ -19,9 +19,28 @@ $passenger1 = new Passenger("Isra", "IsraChino");
 $passenger2 = new Passenger("Andres", "Parcero");
 $passenger3 = new Passenger("Kevin", "V60");
 
-$car1->sit($passengers);
-echo $car1->getPassengers();
+$car1->sit($passenger1);
+$car1Passengers = $car1->getPassengers();
+foreach ($car1Passengers as $passenger) {
+    echo $passenger;
+}
 
+echo "<br>";
+$car2->sit($passenger1);
+$car2->sit($passenger2);
+$car2Passengers = $car2->getPassengers();
+foreach ($car2Passengers as $passenger) {
+    echo $passenger;
+}
+
+echo "<br>";
+$car3->sit($passenger1);
+$car3->sit($passenger2);
+$car3->sit($passenger3);
+$car3Passengers = $car3->getPassengers();
+foreach ($car3Passengers as $passenger) {
+    echo $passenger;
+}
 
 
 
