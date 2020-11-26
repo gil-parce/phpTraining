@@ -3,16 +3,15 @@
 class Car {
   public $model;
   public $seats;
-  public array($seatedPassengers);
+  public $seatedPassengers = array();
 
-  public function __construct($model, $seats, $seatedPassengers) {
+  public function __construct($model, $seats) {
     $this->model = $model;
     $this->seats = $seats;
-    $this->seatedPassengers = $seatedPassengers();
   }
 
   public function sit($passengers) {
-    $this->seatedPassengers = $passengers;
+    $this->seatedPassengers[] = $passengers;
   }
 
   public function getPassengers() {
