@@ -19,17 +19,21 @@ $passenger1 = new Passenger("Isra", "IsraChino");
 $passenger2 = new Passenger("Andres", "Parcero");
 $passenger3 = new Passenger("Kevin", "V60");
 
+// first runs sit($passenger) on $passenger1
+// then creates a container $car1 and retrieves all passengers in object $car1 (only $passenger1)
+// then prints the value of all values within this container given value $passenger (in this case, 'Isra')
 $car1->sit($passenger1);
 $car1Passengers = $car1->getPassengers();
-foreach ($car1Passengers as $passenger) {
+foreach (array_slice ($car1Passengers, 0) as $passenger) {
     echo $passenger;
 }
 
+// Same process as above, but this time runs sit function on passenger1 and passenger2
 echo "<br>";
 $car2->sit($passenger1);
 $car2->sit($passenger2);
 $car2Passengers = $car2->getPassengers();
-foreach ($car2Passengers as $passenger) {
+foreach (array_slice ($car2Passengers, 0, 1) as $passenger) {
     echo $passenger;
 }
 
@@ -38,7 +42,7 @@ $car3->sit($passenger1);
 $car3->sit($passenger2);
 $car3->sit($passenger3);
 $car3Passengers = $car3->getPassengers();
-foreach ($car3Passengers as $passenger) {
+foreach (array_slice($car3Passengers, 0, 2) as $passenger) {
     echo $passenger;
 }
 
