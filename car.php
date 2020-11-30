@@ -20,7 +20,7 @@ class Car {
     return $this->seatedPassengers;
   }
 
-  }
+}
 
 
 
