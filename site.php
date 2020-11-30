@@ -25,16 +25,10 @@ $passenger3 = new Passenger("Kevin", "V60");
 $limit = "Too many passengers. No can do.";
 
 $car1->sit($passenger1);
-$car1->sit($passenger2);
 $car1Passengers = $car1->getPassengers();
-$lengthCar1Passengers = count($car1Passengers);
 foreach ($car1Passengers as $passenger) {
-    if ($lengthCar1Passengers <= $car1->seats) {
         echo $passenger;
-    } else {
-        echo $limit;
     }
-}
 
 // Same process as above, but this time runs sit function on passenger1 and passenger2
 echo "<br>";
@@ -43,26 +37,17 @@ $car2->sit($passenger2);
 $car2Passengers = $car2->getPassengers();
 $lengthCar2Passengers = count($car2Passengers);
 foreach ($car2Passengers as $passenger) {
-    if ($lengthCar2Passengers <= $car2->seats) {
         echo $passenger;
-    } else {
-        echo $limit;
     }
-}
 
 echo "<br>";
 $car3->sit($passenger1);
 $car3->sit($passenger2);
 $car3->sit($passenger3);
 $car3Passengers = $car3->getPassengers();
-$lengthCar3Passengers = count($car3Passengers);
 foreach ($car3Passengers as $passenger) {
-    if ($lengthCar3Passengers <= $car3->seats) {
         echo $passenger;
-    } else {
-        echo $limit;
     }
-}
 
 
 ?>

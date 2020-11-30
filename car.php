@@ -15,14 +15,21 @@ class Car {
     $this->seatedPassengers[] = $passenger;
   }
 
+
   // no arguments. This method returns all passengers
+  // within the function, define $limit as a simple string
+  // create if-else:
+    // if passengers fit, run the echo as expected
+    // otherwise, echo the $limit string
   public function getPassengers() {
+    $limit = "Too many passengers. No can do.";
+    if (count($this->seatedPassengers) <= $this->seats) {
     return $this->seatedPassengers;
+    } else {
+        echo $limit;
+    }
   }
 
 }
-
-
-
 
  ?>
