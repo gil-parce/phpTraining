@@ -10,11 +10,9 @@ class Passenger {
     }
 
     public function __toString() {
-      return "Passenger: $this->username";
+      return "Passenger: $this->username / ";
     }
 
 }
-
-
 
  ?>

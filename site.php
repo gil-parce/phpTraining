@@ -34,8 +34,8 @@ foreach ($car1Passengers as $passenger) {
 echo "<br>";
 $car2->sit($passenger1);
 $car2->sit($passenger2);
+$car2->sit($passenger3);
 $car2Passengers = $car2->getPassengers();
-$lengthCar2Passengers = count($car2Passengers);
 foreach ($car2Passengers as $passenger) {
         echo $passenger;
     }
