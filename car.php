@@ -11,6 +11,9 @@ class Car {
   }
 
   // defines a function with 1 argument - sits a single passenger to be placed in the array seatedPassengers
+  // create if-else:
+      // if passenger fits in the car, sit the passenger
+      // otherwise, echo the $limit string for each passenger who does not fit.
   public function sit($passenger) {
     $limit = "Too many passengers. No can do. ";
         if (count($this->seatedPassengers) < $this->seats) {
@@ -20,14 +23,19 @@ class Car {
         }
   }
 
-
-  // no arguments. This method returns all passengers
-  // within the function, define $limit as a simple string
-  // create if-else:
-    // if passengers fit in the car, return $seatedPassengers to then echo the passenger names
-    // otherwise, echo the $limit string
   public function getPassengers() {
     return $this->seatedPassengers;
+  }
+
+  public function __toString() {
+    $carInfo = "The " . $this->model . " fits " . $this->seats . ". ";
+
+// With each new passenger, append the value $passenger onto the string $carInfo
+// Once there are no more passengers to seat, return the final appended string $carInfo
+    foreach ($this->seatedPassengers as $passenger) {
+            $carInfo = $carInfo . $passenger;
+        }
+        return $carInfo;
   }
 
 }
