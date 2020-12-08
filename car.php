@@ -1,9 +1,9 @@
 <?php
 
 class Car {
-  public $model;
-  public $seats;
-  public $seatedPassengers = array(); // creates an array called $seatedPassengers as a field in the class
+  private $model;
+  private $seats;
+  private $seatedPassengers = array(); // creates an array called $seatedPassengers as a field in the class
 
   public function __construct($model, $seats) {
     $this->model = $model;
@@ -11,17 +11,27 @@ class Car {
   }
 
   // defines a function with 1 argument - sits a single passenger to be placed in the array seatedPassengers
-  // create if-else:
-      // if passenger fits in the car, sit the passenger
-      // otherwise, echo the $limit string for each passenger who does not fit.
+  // runs foreach to check if passenger is already seated
+  // if alreadySeated is true, echo message
+  // otherwise, go on to count the number of seated passengers
+  // if passenger fits in the car, sit the passenger
+// otherwise, echo the $limit string for each passenger who does not fit.
   public function sit($passenger) {
     $limit = "Too many passengers. No can do. ";
-        if (count($this->seatedPassengers) < $this->seats) {
-        $this->seatedPassengers[] = $passenger;
-        } else {
+    $alreadySeated = false;
+        foreach ($this->seatedPassengers as $seatedPassenger) {
+                if ($seatedPassenger == $passenger) {
+                    echo "already sitting down. ";
+                    $alreadySeated = true;
+                    }
+                }
+       if ($alreadySeated == false) {
+            if (count($this->seatedPassengers) < $this->seats) {
+                $this->seatedPassengers[] = $passenger;
+            } else {
             echo $limit;
-        }
-  }
+            }}
+    }
 
   public function getPassengers() {
     return $this->seatedPassengers;
