@@ -1,6 +1,6 @@
 <?php
 
-class Passenger {
+class Human {
     var $username;
     var $password;
 
@@ -10,7 +10,7 @@ class Passenger {
     }
 
     public function __toString() {
-      return "Passenger: ". $this->username . " / ";
+      return "Occupant: ". $this->username . ". ";
     }
 
 }

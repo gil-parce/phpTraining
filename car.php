@@ -3,7 +3,8 @@
 class Car {
   private $model;
   private $seats;
-  private $seatedPassengers = array(); // creates an array called $seatedPassengers as a field in the class
+  private $seatedPassengers = array();
+  public $seatedDriver;
 
   public function __construct($model, $seats) {
     $this->model = $model;
@@ -21,7 +22,7 @@ class Car {
     $alreadySeated = false;
         foreach ($this->seatedPassengers as $seatedPassenger) {
                 if ($seatedPassenger == $passenger) {
-                    echo "already sitting down. ";
+                    echo "Already inside. ";
                     $alreadySeated = true;
                     }
                 }
@@ -37,15 +38,24 @@ class Car {
     return $this->seatedPassengers;
   }
 
+  public function sitDriver($human) {
+          $this->seatedDriver = $human;
+    }
+
+  public function getDriver() {
+    return $this->seatedDriver;
+  }
+
   public function __toString() {
     $carInfo = "The " . $this->model . " fits " . $this->seats . ". ";
+    $driverInfo = " The driver is: " . $this->seatedDriver . ". ";
 
 // With each new passenger, append the value $passenger onto the string $carInfo
 // Once there are no more passengers to seat, return the final appended string $carInfo
     foreach ($this->seatedPassengers as $passenger) {
             $carInfo = $carInfo . $passenger;
         }
-        return $carInfo;
+        return $carInfo . $driverInfo;
   }
 
 }
