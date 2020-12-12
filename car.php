@@ -4,36 +4,19 @@ class Car {
   private $model;
   private $seats;
   private $seatedPassengers = array();
-  public $seatedDriver;
+  private $seatedDriver;
 
   public function __construct($model, $seats) {
     $this->model = $model;
     $this->seats = $seats;
   }
 
-  // defines a function with 1 argument - sits a single passenger to be placed in the array seatedPassengers
-  // runs foreach to check if passenger is already seated
-  // if alreadySeated is true, echo message
-  // otherwise, go on to count the number of seated passengers
-  // if passenger fits in the car, sit the passenger
-// otherwise, echo the $limit string for each passenger who does not fit.
   public function sitPassenger($passenger) {
     $limit = "Too many passengers. No can do. ";
-    $alreadySeated = false;
-    $seatedElsewhere = false;
-        foreach ($this->seatedPassengers as $seatedPassenger) {
-                if ($seatedPassenger == $passenger) {
-                    echo "Already inside. ";
-                    $alreadySeated = true;
-                    }
-        }
 
-        if ($passenger == $this->seatedDriver) {
-            echo "Drivers can't be passengers, dumbass. ";
-            $seatedElsewhere = true;
-        }
+       $isHumanNotInCarYet = $this->humanNotInCarYet($passenger);
 
-       if ($alreadySeated == false && $seatedElsewhere == false) {
+       if ($isHumanNotInCarYet) {
             if (count($this->seatedPassengers) + 1 < $this->seats) {
                 $this->seatedPassengers[] = $passenger;
             } else {
@@ -46,29 +29,14 @@ class Car {
     return $this->seatedPassengers;
   }
 
-  // Make sure no other driver
-  // And driver is not seated as passenger and vice versa
   public function sitDriver($human) {
-    $seatedElsewhere = false;
-    $alreadySeated = false;
-        foreach ($this->seatedPassengers as $seatedPassenger) {
-                if ($seatedPassenger == $human) {
-                    echo "Already inside. ";
-                    $alreadySeated = true;
-                    }
-                }
 
-                if ($human == $this->seatedDriver) {
-                    echo "Drivers can't be passengers, dumbass. ";
-                    $seatedElsewhere = true;
-                }
+       $isHumanNotInCarYet = $this->humanNotInCarYet($human);
 
-        if ($seatedElsewhere == false && $alreadySeated == false) {
+        if ($isHumanNotInCarYet) {
             $this->seatedDriver = $human;
             }
     }
-
-
 
   public function getDriver() {
     return $this->seatedDriver;
@@ -85,6 +53,29 @@ class Car {
         }
         return $carInfo . $driverInfo;
   }
+
+    private function humanNotInCarYet($human) {
+        $alreadySeated = false;
+        $seatedElsewhere = false;
+
+        foreach ($this->seatedPassengers as $seatedPassenger) {
+                    if ($seatedPassenger == $human) {
+                        echo "Already inside. ";
+                        $alreadySeated = true;
+                        }
+                    }
+
+                    if ($human == $this->seatedDriver) {
+                        echo "Drivers can't be passengers, dumbass. ";
+                        $seatedElsewhere = true;
+                    }
+
+        if ($seatedElsewhere == false && $alreadySeated == false) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
 
