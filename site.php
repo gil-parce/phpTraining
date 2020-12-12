@@ -21,18 +21,18 @@ $human3 = new Human("Kevin", "V60");
 
 
 $car1->sitDriver($human1);
-$car1->sit($human1);
 echo $car1;
 
 echo "<br>";
 $car2->sitDriver($human2);
-$car2->sit($human3);
+$car2->sitPassenger($human2);
 echo $car2;
 
 echo "<br>";
-$car3->sit($human1);
-$car3->sit($human1);
-$car3->sit($human3);
+$car3->sitDriver($human3);
+$car3->sitPassenger($human1);
+$car3->sitPassenger($human1);
+$car3->sitPassenger($human3);
 echo $car3;
 
 

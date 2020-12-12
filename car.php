@@ -17,30 +17,58 @@ class Car {
   // otherwise, go on to count the number of seated passengers
   // if passenger fits in the car, sit the passenger
 // otherwise, echo the $limit string for each passenger who does not fit.
-  public function sit($passenger) {
+  public function sitPassenger($passenger) {
     $limit = "Too many passengers. No can do. ";
     $alreadySeated = false;
+    $seatedElsewhere = false;
         foreach ($this->seatedPassengers as $seatedPassenger) {
                 if ($seatedPassenger == $passenger) {
                     echo "Already inside. ";
                     $alreadySeated = true;
                     }
-                }
-       if ($alreadySeated == false) {
-            if (count($this->seatedPassengers) < $this->seats) {
+        }
+
+        if ($passenger == $this->seatedDriver) {
+            echo "Drivers can't be passengers, dumbass. ";
+            $seatedElsewhere = true;
+        }
+
+       if ($alreadySeated == false && $seatedElsewhere == false) {
+            if (count($this->seatedPassengers) + 1 < $this->seats) {
                 $this->seatedPassengers[] = $passenger;
             } else {
             echo $limit;
-            }}
+            }
+       }
     }
 
   public function getPassengers() {
     return $this->seatedPassengers;
   }
 
+  // Make sure no other driver
+  // And driver is not seated as passenger and vice versa
   public function sitDriver($human) {
-          $this->seatedDriver = $human;
+    $seatedElsewhere = false;
+    $alreadySeated = false;
+        foreach ($this->seatedPassengers as $seatedPassenger) {
+                if ($seatedPassenger == $human) {
+                    echo "Already inside. ";
+                    $alreadySeated = true;
+                    }
+                }
+
+                if ($human == $this->seatedDriver) {
+                    echo "Drivers can't be passengers, dumbass. ";
+                    $seatedElsewhere = true;
+                }
+
+        if ($seatedElsewhere == false && $alreadySeated == false) {
+            $this->seatedDriver = $human;
+            }
     }
+
+
 
   public function getDriver() {
     return $this->seatedDriver;
