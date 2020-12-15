@@ -21,7 +21,11 @@ $human3 = new Human("Kevin", "V60");
 
 
 $car1->sitDriver($human1);
-$car1->drive("north");
+$car1->drive("west");
+$car1->drive("south");
+$car1->drive("east");
+$car1->drive("south");
+$car1->drive("west");
 echo $car1;
 
 echo "<br>";

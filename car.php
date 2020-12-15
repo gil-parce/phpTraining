@@ -43,20 +43,19 @@ class Car {
     return $this->seatedDriver;
   }
 
-  public function drive($aCar) {
-      $this->direction = $aCar;
-      return $this->direction;
+  public function drive($direction) {
+      echo "The car has driven: " . $direction . ". ";
   }
+
 
   public function __toString() {
     $carInfo = "The " . $this->model . " fits " . $this->seats . ". ";
     $driverInfo = " The driver is: " . $this->seatedDriver . ". ";
-    $journeyInfo = " The car drives: " . $this->direction . ". ";
 
     foreach ($this->seatedPassengers as $passenger) {
             $carInfo = $carInfo . $passenger;
         }
-        return $carInfo . $driverInfo . $journeyInfo;
+        return $carInfo . $driverInfo;
   }
 
   private function humanNotInCarYet($human) {
