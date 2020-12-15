@@ -5,7 +5,7 @@ class Car {
   private $seats;
   private $seatedPassengers = array();
   private $seatedDriver;
-  private $direction;
+  private $directions = array();
 
   public function __construct($model, $seats) {
     $this->model = $model;
@@ -44,9 +44,19 @@ class Car {
   }
 
   public function drive($direction) {
-      echo "The car has driven: " . $direction . ". ";
+    echo "The car has driven: " . $direction . ". ";
   }
 
+  public function programme($direction) {
+    $this->directions[] = $direction;
+    echo "Oído. ";
+  }
+
+  public function drive1() {
+    foreach ($this->directions as $direction) {
+        echo "The car has driven: " . $direction . ". ";
+        }
+  }
 
   public function __toString() {
     $carInfo = "The " . $this->model . " fits " . $this->seats . ". ";
