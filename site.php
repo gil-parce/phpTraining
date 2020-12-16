@@ -22,11 +22,11 @@ $human3 = new Human("Kevin", "V60");
 
 $car1->sitDriver($human1);
 echo $car1;
-$car1->programme("west");
-$car1->programme("south");
-$car1->programme("east");
-$car1->programme("south");
-$car1->programme("west");
+$driveShapeS = array("west", "south", "east", "south", "west");
+$driveShapeI = array("south", "south");
+$driveInverseI = array("north", "north");
+$driveShapeC = array("westward curve", "south", "eastward curve");
+$car1->programme($driveShapeC);
 $car1->drive1();
 
 echo "<br>";

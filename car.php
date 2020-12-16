@@ -48,9 +48,9 @@ class Car {
   }
 
   public function programme($direction) {
-    $this->directions[] = $direction;
+    $this->directions = $direction;
     echo "Oído. ";
-  }
+    }
 
   public function drive1() {
     foreach ($this->directions as $direction) {
