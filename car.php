@@ -6,6 +6,7 @@ class Car {
   private $seatedPassengers = array();
   private $seatedDriver;
   private $directions = array();
+  private $direction;
 
   public function __construct($model, $seats) {
     $this->model = $model;
@@ -54,8 +55,23 @@ class Car {
 
   public function drive1() {
     foreach ($this->directions as $direction) {
-        echo "The car has driven: " . $direction . ". ";
+        echo "The " . $this->model . " has driven: " . $direction . ". ";
         }
+  }
+
+  public function setSpeed ($speed) {
+    if (is_numeric($speed)) {
+        echo "The " . $this->model . " is driving at " . $speed . " mph. ";
+        if ($speed < 30) {
+                echo "Please speed the fuck up a touch. ";
+            } elseif ($speed >= 60) {
+                echo "Please slow the fuck down. ";
+            } else {
+                echo "The current velocity does not overly concern me. ";
+            }
+    } else {
+        echo "That is not a valid speed. ";
+    }
   }
 
   public function __toString() {
