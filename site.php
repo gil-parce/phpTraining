@@ -69,6 +69,9 @@ echo "__________";
 echo "<br>";
 
 echo "<br>";
+$human1->carSick("Isra");
+
+echo "<br>";
 $human3->changeIdentity("Gregory");
 
 ?>
