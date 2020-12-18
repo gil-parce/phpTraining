@@ -60,10 +60,16 @@ echo "<br>";
 
 $car1->setSpeed("gil");
 echo "<br>";
-$car2->setSpeed(0);
+$car2->setSpeed(7.4);
 echo "<br>";
 $car3->setSpeed(60);
 
+echo "<br>";
+echo "__________";
+echo "<br>";
+
+echo "<br>";
+$human3->changeIdentity("Gregory");
 
 ?>
 
