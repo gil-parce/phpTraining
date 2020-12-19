@@ -77,6 +77,8 @@ class Car {
   public function carSick($passenger) {
     if ($this->seatedPassenger == $passenger) {
                 echo $passenger . " is car sick. There's vomit everywhere.";
+            } elseif ($this->seatedDriver == $passenger) {
+                echo $passenger . " is the driver. Drivers don't tend to get car sick.";
             } else {
                 echo $passenger . " is not a passenger in the " . $this->model . " and so cannot puke in this vehicle.";
             }

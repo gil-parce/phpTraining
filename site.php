@@ -32,7 +32,6 @@ echo "<br>";
 $car3->sitDriver($human3);
 $car3->sitPassenger($human1);
 $car3->sitPassenger($human2);
-$car3->sitPassenger($human3);
 echo $car3;
 
 echo "<br>";
@@ -69,7 +68,7 @@ echo "__________";
 echo "<br>";
 
 echo "<br>";
-$car1->carSick($human1);
+$car1->carSick($human3);
 
 echo "<br>";
 $human3->changeIdentity("Gregory");
