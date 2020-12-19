@@ -69,7 +69,7 @@ echo "__________";
 echo "<br>";
 
 echo "<br>";
-$human1->carSick("Isra");
+$car1->carSick($human1);
 
 echo "<br>";
 $human3->changeIdentity("Gregory");

@@ -74,6 +74,14 @@ class Car {
     }
   }
 
+  public function carSick($passenger) {
+    if ($this->seatedPassenger == $passenger) {
+                echo $passenger . " is car sick. There's vomit everywhere.";
+            } else {
+                echo $passenger . " is not a passenger in the " . $this->model . " and so cannot puke in this vehicle.";
+            }
+  }
+
   public function __toString() {
     $carInfo = "The " . $this->model . " fits " . $this->seats . ". ";
     $driverInfo = " The driver is: " . $this->seatedDriver . ". ";
